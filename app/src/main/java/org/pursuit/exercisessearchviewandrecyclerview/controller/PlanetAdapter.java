@@ -3,6 +3,7 @@ package org.pursuit.exercisessearchviewandrecyclerview.controller;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import org.pursuit.exercisessearchviewandrecyclerview.R;
@@ -22,16 +23,22 @@ public class PlanetAdapter extends RecyclerView.Adapter<PlanetViewHolder> {
     @NonNull
     @Override
     public PlanetViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
-        return new PlanetViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.planet_itemview, parent, false));
+        View childview = LayoutInflater.from(parent.getContext()).inflate(R.layout.planet_itemview, parent, false);
+        return new PlanetViewHolder(childview);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PlanetViewHolder planetViewHolder, int i) {
-
+    public void onBindViewHolder(@NonNull PlanetViewHolder planetViewHolder, int position) {
+        planetViewHolder.onBind(planetList.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return planetList.size();
+    }
+
+    public void setData(List<Planet> newPlanetList){
+        this.planetList = newPlanetList;
+        notifyDataSetChanged();
     }
 }

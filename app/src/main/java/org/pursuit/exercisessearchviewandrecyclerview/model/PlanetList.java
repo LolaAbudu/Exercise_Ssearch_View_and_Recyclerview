@@ -1,7 +1,5 @@
 package org.pursuit.exercisessearchviewandrecyclerview.model;
 
-import org.pursuit.exercisessearchviewandrecyclerview.model.Planet;
-
 import java.util.List;
 
 public class PlanetList {

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Exercises SearchView and RecyclerView</string>
+    <string name="planet_imageview_content_description">Planet Images</string>
 </resources>

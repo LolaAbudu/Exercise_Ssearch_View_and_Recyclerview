@@ -10,7 +10,6 @@ import org.pursuit.exercisessearchviewandrecyclerview.R;
 import org.pursuit.exercisessearchviewandrecyclerview.model.Planet;
 import org.pursuit.exercisessearchviewandrecyclerview.view.PlanetViewHolder;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class PlanetAdapter extends RecyclerView.Adapter<PlanetViewHolder> {
@@ -37,7 +36,7 @@ public class PlanetAdapter extends RecyclerView.Adapter<PlanetViewHolder> {
         return planetList.size();
     }
 
-    public void setData(List<Planet> newPlanetList){
+    public void setData(List<Planet> newPlanetList) {
         this.planetList = newPlanetList;
         notifyDataSetChanged();
     }

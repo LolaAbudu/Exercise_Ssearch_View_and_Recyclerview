@@ -1,7 +1,6 @@
 package org.pursuit.exercisessearchviewandrecyclerview.network;
 
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitSingleton {
@@ -10,8 +9,8 @@ public class RetrofitSingleton {
 
     private static Retrofit oneInstance;
 
-    public static Retrofit getOneInstance(){
-        if(oneInstance != null){
+    public static Retrofit getOneInstance() {
+        if (oneInstance != null) {
             return oneInstance;
         }
         oneInstance = new Retrofit.Builder()
@@ -22,5 +21,6 @@ public class RetrofitSingleton {
         return oneInstance;
     }
 
-    private RetrofitSingleton(){}
+    private RetrofitSingleton() {
+    }
 }

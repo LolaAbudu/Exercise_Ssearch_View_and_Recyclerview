@@ -20,18 +20,12 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
     private RecyclerView recyclerView;
-    private SearchView searchView;
     private PlanetAdapter planetAdapter;
     private List<Planet> planetList;
-    //private Retrofit retrofit;
-
-
-
 
     @SuppressLint("CheckResult")
     @Override
@@ -40,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         setContentView(R.layout.activity_main);
 
         recyclerView = findViewById(R.id.planet_recycler_view);
-        searchView = findViewById(R.id.planet_search_view);
+        SearchView searchView = findViewById(R.id.planet_search_view);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
@@ -67,26 +61,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 Log.d("TAG", "onFailure" + t.getMessage());
             }
         });
-//
-//        RetrofitSingleton.getOneInstance()
-//                .create(PlanetService.class)
-//                .getPlanetResponse()
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                //.map(PlanetList::getPlanetList)
-//                .subscribe(
-//                        planet -> {
-//                           planetList = new ArrayList<>();
-//                            planetList.addAll(planet.getPlanetList().get(0));
-//                            Log.d("TAG", "onResponse" + planet);
-//
-//                            planetAdapter = new PlanetAdapter(planetList);
-//                            recyclerView.setAdapter(planetAdapter);
-//                            recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-//                        },
-//                        throwable -> Log.d("TAG", "onFailure" + throwable));
-        //PlanetsWrapper::getPlanets
-
     }
 
     @Override

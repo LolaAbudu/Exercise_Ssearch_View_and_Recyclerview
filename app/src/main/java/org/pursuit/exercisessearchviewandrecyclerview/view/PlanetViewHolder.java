@@ -14,14 +14,11 @@ import org.pursuit.exercisessearchviewandrecyclerview.model.Planet;
 public class PlanetViewHolder extends RecyclerView.ViewHolder {
 
     private TextView planetNameTextView;
-    //private TextView planetNumberTextView;
     private ImageView planetImageView;
 
     public PlanetViewHolder(@NonNull View itemView) {
         super(itemView);
-
         planetNameTextView = itemView.findViewById(R.id.name_text_view);
-        //planetNumberTextView = itemView.findViewById(R.id.number_text_view);
         planetImageView = itemView.findViewById(R.id.image_text_view);
     }
 
@@ -31,7 +28,6 @@ public class PlanetViewHolder extends RecyclerView.ViewHolder {
 
     private void setViews(Planet planet) {
         planetNameTextView.setText(planet.getName());
-        //planetNumberTextView.setText(String.valueOf(planet.getNumber()));
         Picasso.get().load(planet.getImage()).into(planetImageView);
     }
 }

@@ -39,29 +39,27 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //planetList = new ArrayList<>();
         recyclerView = findViewById(R.id.planet_recycler_view);
         searchView = findViewById(R.id.planet_search_view);
 
-        //planetAdapter = new PlanetAdapter(planetList);
-        //recyclerView.setAdapter(planetAdapter);
-        planetList = new ArrayList<>();
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
         searchView.setOnQueryTextListener(this);
-
 
         RetrofitSingleton.getOneInstance()
                 .create(PlanetService.class)
                 .getPlanetResponse().enqueue(new Callback<PlanetList>() {
             @Override
             public void onResponse(Call<PlanetList> call, Response<PlanetList> response) {
+                Log.d("TAG", "onResponse" + response.body());
+
                 Log.d("TAG", "onResponse" + response.body().getPlanetList());
                 planetList = response.body().getPlanetList();
 
-                recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                planetAdapter = new PlanetAdapter(planetList);
-                recyclerView.setAdapter(planetAdapter);
-
+                if (planetList != null) {
+                    planetAdapter = new PlanetAdapter(planetList);
+                    recyclerView.setAdapter(planetAdapter);
+                }
             }
 
             @Override
@@ -79,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 //                .subscribe(
 //                        planet -> {
 //                           planetList = new ArrayList<>();
-//                            planetList.add(planet.getPlanetList().get(0));
+//                            planetList.addAll(planet.getPlanetList().get(0));
 //                            Log.d("TAG", "onResponse" + planet);
 //
 //                            planetAdapter = new PlanetAdapter(planetList);

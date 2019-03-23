@@ -10,13 +10,13 @@ import org.pursuit.exercisessearchviewandrecyclerview.R;
 import org.pursuit.exercisessearchviewandrecyclerview.model.Planet;
 import org.pursuit.exercisessearchviewandrecyclerview.view.PlanetViewHolder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PlanetAdapter extends RecyclerView.Adapter<PlanetViewHolder> {
-
     private List<Planet> planetList;
 
-    public PlanetAdapter(List<Planet> planetList) {
+    public PlanetAdapter(@NonNull List<Planet> planetList) {
         this.planetList = planetList;
     }
 
